@@ -19,7 +19,7 @@ class HomeView(View):
         audios = video.streams.filter(only_audio=True)
         audios[-1].download()
         audio_file= open("./{}.webm".format(filename), "rb")
-        openai.api_key = "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"
+        openai.api_key = "your api key"
         transcript = openai.Audio.translate("whisper-1", audio_file)
         summary = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
